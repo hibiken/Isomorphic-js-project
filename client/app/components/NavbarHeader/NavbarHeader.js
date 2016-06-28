@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class NavbarHeader extends React.Component {
   _renderNavItems() {
@@ -11,8 +12,12 @@ class NavbarHeader extends React.Component {
     } else {
       return (
         <ul className="nav navbar-nav">
-          <li className="nav-item">Sign In</li>
-          <li className="nav-item">Sign Up</li>
+          <li className="nav-item">
+            <Link to="/signin">Sign In</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/signup">Sign Up</Link>
+          </li>
         </ul>
       );
     }

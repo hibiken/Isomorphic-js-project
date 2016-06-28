@@ -6,9 +6,8 @@ class App extends React.Component {
     return (
       <div>
         <NavbarHeader isSignedIn={false} />
-
         <div className="container-fluid">
-          Hello World!
+          {this.props.children}
         </div>
       </div>
     );
