@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 const loadState = () => {
   try {
-    const serializedState = localStorage.getItem('purpose');
+    const serializedState = localStorage.getItem('redux-store');
     if (serializedState === null) {
       return undefined;
     }
@@ -20,7 +20,7 @@ const loadState = () => {
 const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem('purpose', serializedState);
+    localStorage.setItem('redux-store', serializedState);
   } catch (err) {
     console.error('Error occurred while persisting state to Local Storage');
   }
@@ -46,8 +46,11 @@ const configureStore = (intialState = {}, history) => {
   const store = createStore(rootReducer, persistedState, enhancer);
 
   store.subscribe(_.throttle(() => {
-    const stateTree = store.getState();
-    saveState(stateTree);
+    const state = store.getState();
+    const stateToPersist = {
+      currentUser: state.currentUser,
+    };
+    saveState(stateToPersist);
   }, 1000));
 
   return store;
