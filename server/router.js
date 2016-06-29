@@ -7,7 +7,7 @@ const requireSignIn = passport.authenticate('local', { session: false });
 
 module.exports = function(app) {
   app.get('/', requireAuth, function(req, res) {
-    res.send({ hi: 'ken' });
+    res.send({ message: 'this is protected resource' });
   });
 
   app.post('/signin', requireSignIn, Authentication.signin);

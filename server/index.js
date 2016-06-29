@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const router = require('./router');
 
@@ -11,7 +12,7 @@ mongoose.connect('mongodb://localhost:auth/auth');
 /*** App setup ***/
 app.use(morgan('dev'));
 app.use(bodyParser.json({ type: '*/*' })); // TODO change this to application/json
-
+app.use(cors());
 router(app);
 
 /*** Server setup ***/

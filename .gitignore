@@ -2,5 +2,6 @@
 ./server/node_modules
 client/npm-debug.log
 server/npm-debug.log
+npm-debug.log
 
 
