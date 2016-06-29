@@ -6,7 +6,7 @@ class NavbarHeader extends React.Component {
     if (this.props.isSignedIn) {
       return (
         <ul className="nav navbar-nav">
-          <li className="nav-item">Sign Out</li>
+          <li className="nav-item" onClick={this.props.onSignOut}>Sign Out</li>
         </ul>
       );
     }
@@ -33,6 +33,7 @@ class NavbarHeader extends React.Component {
 
 NavbarHeader.propTypes = {
   isSignedIn: React.PropTypes.bool.isRequired,
+  onSignOut: React.PropTypes.func.isRequired,
 };
 
 export default NavbarHeader;

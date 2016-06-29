@@ -1,4 +1,5 @@
 import { applyMiddleware, createStore } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
 import _ from 'lodash';
@@ -25,7 +26,7 @@ const saveState = (state) => {
   }
 };
 
-const configureStore = () => {
+const configureStore = (intialState = {}, history) => {
   // TODO: set NODE_ENV
   // let enhancer;
   // if (process.env.NODE_ENV === 'development') {
@@ -38,7 +39,7 @@ const configureStore = () => {
 
   const createLogger = require('redux-logger');
   const logger = createLogger();
-  const enhancer = applyMiddleware(thunk, logger);
+  const enhancer = applyMiddleware(thunk, routerMiddleware(history), logger);
 
   const persistedState = loadState();
 

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import App from './containers/App';
 import SignInView from './routes/SignIn/SignInView';
@@ -9,11 +10,15 @@ import configureStore from './redux/configureStore';
 
 import './styles/base.scss';
 
-const store = configureStore();
+const initialState = window.__INITIAL_STATE__;
+
+const store = configureStore(initialState, browserHistory);
+// Create an enhanced history that syncs navigation events with the store
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={history}>
       <Route path="/" component={App}>
         <Route path="signin" component={SignInView} />
       </Route>

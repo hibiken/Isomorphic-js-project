@@ -8,7 +8,7 @@
          "imports": ["react"],
          "locals": ["module"]
        }]
-     }]]
+     }], ["transform-object-rest-spread"]]
     }
   }
 }

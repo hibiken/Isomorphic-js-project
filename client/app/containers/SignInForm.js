@@ -1,5 +1,6 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
+import { signInUser } from '../redux/modules/currentUser';
 
 class SignInForm extends React.Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class SignInForm extends React.Component {
   }
 
   handleFormSubmit({ email, password }) {
-    console.log('email', email);
-    console.log('password', password);
+    console.log('calling SignInUser');
+    this.props.signInUser({ email, password });
   }
 
   render() {
@@ -46,7 +47,13 @@ class SignInForm extends React.Component {
   }
 }
 
+const mapDisptchToProps = (dispatch) => ({
+  signInUser: ({email, password}) => {
+    dispatch(signInUser({ email, password }));
+  }
+})
+
 export default reduxForm({
   form: 'SignIn',
   fields: ['email', 'password'],
-})(SignInForm);
+}, null, mapDisptchToProps)(SignInForm);
