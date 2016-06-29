@@ -15,12 +15,12 @@ class MainLayout extends React.Component {
     );
   }
 }
-
+/*
 MainLayout.propTypes = {
   children: React.PropTypes.any,
   isSignedIn: React.PropTypes.bool.isRequred,
 };
-
+*/
 const mapStateToProps = (state) => ({
   isSignedIn: state.currentUser.isSignedIn,
 });

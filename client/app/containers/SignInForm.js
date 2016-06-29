@@ -5,7 +5,6 @@ import { signInUser } from '../redux/modules/currentUser';
 class SignInForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
