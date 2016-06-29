@@ -9,8 +9,8 @@ class SignInForm extends React.Component {
   }
 
   handleFormSubmit({ email, password }) {
-     console.log('email', email);
-     console.log('password', password);
+    console.log('email', email);
+    console.log('password', password);
   }
 
   render() {
@@ -48,5 +48,5 @@ class SignInForm extends React.Component {
 
 export default reduxForm({
   form: 'SignIn',
-  fields: [ 'email', 'password' ],
+  fields: ['email', 'password'],
 })(SignInForm);

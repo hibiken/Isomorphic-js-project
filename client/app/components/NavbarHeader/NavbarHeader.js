@@ -9,18 +9,17 @@ class NavbarHeader extends React.Component {
           <li className="nav-item">Sign Out</li>
         </ul>
       );
-    } else {
-      return (
-        <ul className="nav navbar-nav">
-          <li className="nav-item">
-            <Link to="/signin">Sign In</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/signup">Sign Up</Link>
-          </li>
-        </ul>
-      );
     }
+    return (
+      <ul className="nav navbar-nav">
+        <li className="nav-item">
+          <Link to="/signin">Sign In</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/signup">Sign Up</Link>
+        </li>
+      </ul>
+    );
   }
 
   render() {

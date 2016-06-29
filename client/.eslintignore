@@ -1,0 +1,5 @@
+node_modules/**
+build/**
+app/index.tmpl.html
+webpack.config.js
+webpack.production.config.js

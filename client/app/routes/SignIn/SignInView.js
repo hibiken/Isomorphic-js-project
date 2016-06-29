@@ -1,6 +1,5 @@
 import React from 'react';
 
-import NavbarHeader from '../../components/NavbarHeader';
 import SignInForm from '../../containers/SignInForm';
 
 class SignInView extends React.Component {
