@@ -7,6 +7,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import MainLayout from './containers/MainLayout';
 import HomeView from './routes/Home/HomeView';
 import SignInView from './routes/SignIn/SignInView';
+import SignUpView from './routes/SignUp/SignUpView';
 import configureStore from './redux/configureStore';
 
 import './styles/base.scss';
@@ -23,6 +24,7 @@ ReactDOM.render(
       <Route path="/" component={MainLayout}>
         <IndexRoute component={HomeView} />
         <Route path="signin" component={SignInView} />
+        <Route path="signup" component={SignUpView} />
       </Route>
     </Router>
   </Provider>,
