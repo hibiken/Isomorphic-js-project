@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { signOutUser } from '../redux/modules/currentUser';
 import NavbarHeader from '../components/NavbarHeader';
 
-class App extends React.Component {
+class MainLayout extends React.Component {
   render() {
     return (
       <div>
@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+MainLayout.propTypes = {
   children: React.PropTypes.any,
   isSignedIn: React.PropTypes.bool.isRequred,
 };
@@ -34,4 +34,4 @@ const mapDisptchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDisptchToProps
-)(App);
+)(MainLayout);

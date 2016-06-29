@@ -5,13 +5,15 @@ class NavbarHeader extends React.Component {
   _renderNavItems() {
     if (this.props.isSignedIn) {
       return (
-        <ul className="nav navbar-nav">
-          <li className="nav-item" onClick={this.props.onSignOut}>Sign Out</li>
+        <ul className="nav navbar-nav navbar-right">
+          <li className="nav-item" onClick={this.props.onSignOut}>
+            <a>Sign Out</a>
+          </li>
         </ul>
       );
     }
     return (
-      <ul className="nav navbar-nav">
+      <ul className="nav navbar-nav navbar-right">
         <li className="nav-item">
           <Link to="/signin">Sign In</Link>
         </li>
@@ -24,8 +26,14 @@ class NavbarHeader extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-light">
-        {this._renderNavItems()}
+      <nav className="navbar navbar-default">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <Link to="/" className="navbar-brand">Isomorphic JS</Link>
+          </div>
+
+          {this._renderNavItems()}
+        </div>
       </nav>
     );
   }
