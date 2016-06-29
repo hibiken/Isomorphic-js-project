@@ -10,7 +10,6 @@ class SignInForm extends React.Component {
   }
 
   handleFormSubmit({ email, password }) {
-    console.log('calling SignInUser');
     this.props.signInUser({ email, password });
   }
 

@@ -4,7 +4,7 @@ import { push } from 'react-router-redux';
 
 const ROOT_URL = 'http://localhost:3090';
 
-export const signInUser = ({ email, password }) => (dispatch, getState) => {
+export const signInUser = ({ email, password }) => (dispatch) => {
   axios.post(`${ROOT_URL}/signin`, { email, password })
     .then(({ data }) => {
       dispatch({ type: types.SIGN_IN_SUCCESS, authToken: data.token });
@@ -19,6 +19,17 @@ export const signOutUser = () => ({
   type: types.SIGN_OUT_USER,
 });
 
+export const registerUser = ({ email, password }) => (dispatch) => {
+  axios.post(`${ROOT_URL}/signup`, { email, password })
+    .then(({data}) => {
+      dispatch({ type: types.SIGN_UP_SUCCESS, authToken: data.token });
+      dispatch(push('/'));
+    })
+    .catch((err) => {
+      console.error('signup error!', error);
+    })
+}
+
 const initialState = {
   isSignedIn: false,
   authToken: null,
@@ -27,6 +38,7 @@ const initialState = {
 const currentUser = (state = initialState, action) => {
   switch (action.type) {
     case types.SIGN_IN_SUCCESS:
+    case types.SIGN_UP_SUCCESS:
       return {
         ...state,
         isSignedIn: true,
